@@ -16,9 +16,13 @@ jobs:
       - checkout
       - ruby/install-deps
       - run:
-          name: fastlane
+          name: Android Build
           # command: bundle exec fastlane $FASTLANE_LANE
           command: cd android && bundle exec fastlane dev
+      - run:
+          name: iOS Build
+          # command: bundle exec fastlane $FASTLANE_LANE
+          command: cd ios && bundle exec fastlane development
       - store_artifacts:
           path: output
       - store_test_results:
